@@ -4,21 +4,24 @@ from web3 import Web3
 from dotenv import load_dotenv
 
 
-from .consts import *
-from .helpers import *
+from consts import *
+from helpers import *
 
 load_dotenv()
 
 
-def handle_choice(choice):
+def handle_choice(web3, choice):
     if choice == MENU_CHOICE_LATEST:
-        pass
+        block = web3.eth.get_block('latest')
     elif choice == MENU_CHOICE_ADDRESS:
-        pass
+        address = input("Address >> ")
+        block = web3.eth.get_block(address)
     elif choice == MENU_CHOICE_USERNAME:
         pass
     else:  # default
-        pass
+        print("INVALID CHOICE...? this shouldnt happen...")
+        return
+    print(str(block.__dict__))
 
 '''
 # ================================================================================== #
@@ -53,5 +56,4 @@ while run:
             menu_choice = get_choice_by_num(choice)
             print("\n**\nYOU CHOSE SEARCH " + str(menu_choice[0]) + "\n**\n")
             print_line_break()
-            handle_choice(choice)
-            # TODO call corresponding function
+            handle_choice(w3, choice)
