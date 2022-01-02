@@ -38,7 +38,7 @@ def print_line_break():
 def print_menu():
     print_line_break()
     print("=")
-    print("= Search by:")
+    print("= Choices:")
     for menu_choice in LIST_MENU_CHOICES:
         print("= " + str(menu_choice[1]) + ".\t" + str(menu_choice[0]))
     print("= ")

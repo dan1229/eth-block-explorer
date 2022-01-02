@@ -13,15 +13,17 @@ load_dotenv()
 def handle_choice(web3, choice):
     if choice == MENU_CHOICE_LATEST:
         block = web3.eth.get_block('latest')
+        print(str(block.__dict__))
     elif choice == MENU_CHOICE_ADDRESS:
         address = input("Address >> ")
         block = web3.eth.get_block(address)
-    elif choice == MENU_CHOICE_USERNAME:
-        pass
+        print(str(block.__dict__))
+    elif choice == MENU_CHOICE_ACCOUNT_BALANCE:
+        account = input("Account >> ")
+        balance = web3.eth.get_balance(account)
+        print("\n**\nBalance\n" + str(balance) + " ETH\n**\n")
     else:  # default
         print("INVALID CHOICE...? this shouldnt happen...")
-        return
-    print(str(block.__dict__))
 
 '''
 # ================================================================================== #
@@ -29,6 +31,7 @@ def handle_choice(web3, choice):
 # ================================================================================== #
 '''
 
+# setup web3
 w3 = Web3(Web3.HTTPProvider(os.environ.get('INFURA_URL')))
 
 print("========================================================")
@@ -52,8 +55,6 @@ while run:
             print("\nThank you for using ETH Block Explorer!\n")
             print_line_break()
         else:  # everything else
-            print_line_break()
             menu_choice = get_choice_by_num(choice)
-            print("\n**\nYOU CHOSE SEARCH " + str(menu_choice[0]) + "\n**\n")
-            print_line_break()
+            print("\n**\nYOU CHOSE " + str(menu_choice[0]) + "\n**\n")
             handle_choice(w3, choice)
