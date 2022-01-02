@@ -5,6 +5,31 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# ==========================
+#
+# CONSTS
+#
+# TODO
+
+
+# ==========================
+#
+# PRINT FUNCTIONS
+#
+def print_line_break():
+    print("================================")
+    
+def print_menu():
+    print_line_break()
+    print("= 1.")
+    print("= 2.")
+    print("= 3.")
+    print("= ")
+
+def get_menu_choice():
+    print_menu()    
+    choice = input("= Option >> ")
+
 
 '''
 # ================================================================================== #
@@ -22,4 +47,4 @@ print("")
 
 run = True
 while run:
-    print("")
+    get_menu_choice()
