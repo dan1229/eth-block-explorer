@@ -1,3 +1,8 @@
-from web3 import Web3
+import os
 
-w3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/<infura-project-id>'))
+from web3 import Web3
+from dotenv import load_dotenv
+
+load_dotenv()
+
+w3 = Web3(Web3.HTTPProvider(os.environ.get('INFURA_URL')))
