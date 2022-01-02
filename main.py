@@ -11,19 +11,23 @@ load_dotenv()
 
 
 def handle_choice(web3, choice):
-    if choice == MENU_CHOICE_LATEST:
-        block = web3.eth.get_block('latest')
-        print(str(block.__dict__))
-    elif choice == MENU_CHOICE_ADDRESS:
-        address = input("Address >> ")
-        block = web3.eth.get_block(address)
-        print(str(block.__dict__))
-    elif choice == MENU_CHOICE_ACCOUNT_BALANCE:
-        account = input("Account >> ")
-        balance = web3.eth.get_balance(account)
-        print("\n**\nBalance\n" + str(balance) + " ETH\n**\n")
-    else:  # default
-        print("INVALID CHOICE...? this shouldnt happen...")
+    try:
+        if choice == MENU_CHOICE_LATEST:
+            block = web3.eth.get_block('latest')
+            print(str(block.__dict__))
+        elif choice == MENU_CHOICE_ADDRESS:
+            address = input("Address >> ")
+            block = web3.eth.get_block(address)
+            print(str(block.__dict__))
+        elif choice == MENU_CHOICE_ACCOUNT_BALANCE:
+            account = input("Account >> ")
+            balance = web3.eth.get_balance(account)
+            print("\n**\nBalance\n" + str(balance) + " ETH\n**\n")
+        else:  # default
+            print("THIS SHOULD NOT HAPPEN - YOUR CHOICE CONFIG IS INVALID")
+            raise Exception
+    except Exception:
+        print("INVALID CHOICE?")
 
 '''
 # ================================================================================== #
@@ -48,7 +52,7 @@ while not valid:
         else:
             valid = True
     except ValueError:
-        print("Invalid choice. Please try again.")
+        print("\nInvalid choice. Please try again.\n")
 
 # setup web3
 print("Starting web3...")
