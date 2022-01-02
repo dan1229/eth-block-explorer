@@ -3,50 +3,13 @@ import os
 from web3 import Web3
 from dotenv import load_dotenv
 
+
+from .consts import *
+from .helpers import *
+
 load_dotenv()
 
-# ==========================
-#
-# CONSTS
-#
-MENU_CHOICE_INVALID = -1
-MENU_CHOICE_EXIT = 99
-MENU_CHOICE_1 = 1
-MENU_CHOICE_2 = 2
-MENU_CHOICE_3 = 3
-LIST_MENU_CHOICES = [
-    ("Latest", MENU_CHOICE_1),
-    ("By Address", MENU_CHOICE_2),
-    ("By Username", MENU_CHOICE_3),
-    ("Exit", MENU_CHOICE_EXIT),
-]
 
-
-# ==========================
-#
-# HELPERS
-#
-def valid_menu_choice(choice):
-    try:
-        choice = int(choice)
-    except ValueError:  # not an int
-        return False
-    
-    for menu_choice in LIST_MENU_CHOICES:
-        if int(menu_choice[1]) == choice:
-            return True
-    return False
-
-def get_choice_by_num(num):
-    try:
-        num = int(num)
-    except ValueError:  # not an int
-        return None
-    
-    for menu_choice in LIST_MENU_CHOICES:
-        if int(menu_choice[1]) == num:
-            return menu_choice
-    return None
 
 # ==========================
 #
