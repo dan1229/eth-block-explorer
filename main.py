@@ -31,16 +31,40 @@ def handle_choice(web3, choice):
 # ================================================================================== #
 '''
 
-# setup web3
-w3 = Web3(Web3.HTTPProvider(os.environ.get('INFURA_URL')))
+print_line_break(long=True)
 
-print("========================================================")
-print("")
+# ask network to use
+valid = False
+while not valid:
+    print("Which network do you want to use?")
+    print("\t1. MainNet (Infura)")
+    print("\t2. TestNet")
+    choice = input("Choice >> ")
+    try:
+        choice = int(choice)
+        if choice != 1 and choice != 2:
+            raise ValueError
+        else:
+            valid = True
+    except ValueError:
+        print("Invalid choice. Please try again.")
+
+# setup web3
+print("Starting web3...")
+w3 = Web3(Web3.HTTPProvider(os.environ.get('INFURA_URL')))
+connected = w3.isConnected()
+print("\tProvider URL:\t" + str(os.environ.get('INFURA_URL')))
+print("\tConnected:\t" + str(connected))
+
+
+# welcome message
+print_line_break(long=True)
 print("**")
 print("Welcome to ETH Block Explorer!")
 print("**")
-print("")
 
+
+# menu loop
 run = True
 while run:
     choice = get_menu_choice()

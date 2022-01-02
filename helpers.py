@@ -32,18 +32,20 @@ def get_choice_by_num(num):
 #
 # PRINT FUNCTIONS
 #
-def print_line_break():
-    print("================================")
+def print_line_break(long=False):
+    line = "================================"
+    if long:
+        line += line
+    print("")
+    print(line)
+    print("")
     
 def print_menu():
     print_line_break()
-    print("=")
-    print("= Choices:")
+    print("Choices:")
     for menu_choice in LIST_MENU_CHOICES:
-        print("= " + str(menu_choice[1]) + ".\t" + str(menu_choice[0]))
-    print("= ")
+        print("=\t" + str(menu_choice[1]) + ". " + str(menu_choice[0]))
     print_line_break()
-    print("")
     
 # 
 # get_menu_choice
