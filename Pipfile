@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+web3 = "*"
 
 [dev-packages]
 

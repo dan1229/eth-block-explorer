@@ -1,0 +1,7 @@
+Eth Block Explorer
+
+install web 3
+
+node
+- providers https://web3py.readthedocs.io/en/stable/providers.html#providers
+- infura for node
