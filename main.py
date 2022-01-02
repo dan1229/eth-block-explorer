@@ -10,8 +10,15 @@ from .helpers import *
 load_dotenv()
 
 
-
-
+def handle_choice(choice):
+    if choice == MENU_CHOICE_LATEST:
+        pass
+    elif choice == MENU_CHOICE_ADDRESS:
+        pass
+    elif choice == MENU_CHOICE_USERNAME:
+        pass
+    else:  # default
+        pass
 
 '''
 # ================================================================================== #
@@ -46,4 +53,5 @@ while run:
             menu_choice = get_choice_by_num(choice)
             print("\n**\nYOU CHOSE SEARCH " + str(menu_choice[0]) + "\n**\n")
             print_line_break()
+            handle_choice(choice)
             # TODO call corresponding function
