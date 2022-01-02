@@ -1,6 +1,6 @@
 import os
 
-from web3 import Web3
+from web3 import Web3, EthereumTesterProvider
 from dotenv import load_dotenv
 
 
@@ -35,14 +35,15 @@ print_line_break(long=True)
 
 # ask network to use
 valid = False
+network_choice = 1  # main net by default
 while not valid:
     print("Which network do you want to use?")
     print("\t1. MainNet (Infura)")
     print("\t2. TestNet")
-    choice = input("Choice >> ")
+    network_choice = input("Choice >> ")
     try:
-        choice = int(choice)
-        if choice != 1 and choice != 2:
+        network_choice = int(network_choice)
+        if network_choice != 1 and network_choice != 2:
             raise ValueError
         else:
             valid = True
@@ -51,9 +52,17 @@ while not valid:
 
 # setup web3
 print("Starting web3...")
-w3 = Web3(Web3.HTTPProvider(os.environ.get('INFURA_URL')))
+if network_choice == 1:  # Main Net
+    w3 = Web3(Web3.HTTPProvider(os.environ.get('INFURA_URL')))
+    print("\tTestNet:\tFalse")
+    print("\tProvider URL:\t" + str(os.environ.get('INFURA_URL')))
+else:  # Test Net
+    w3 = Web3(EthereumTesterProvider())
+    print("\tTestNet:\tTrue")
+    print("\tProvider URL:\tN/A")
+
 connected = w3.isConnected()
-print("\tProvider URL:\t" + str(os.environ.get('INFURA_URL')))
+
 print("\tConnected:\t" + str(connected))
 
 

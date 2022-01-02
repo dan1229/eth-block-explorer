@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 web3 = "==5.25.0"
 python-dotenv = "==0.19.2"
+eth-tester = "==0.6.0b4"
 
 [dev-packages]
 

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ea0fdb9edd5b571a646f73f186b34de67294a48bfecb4e79c519f06b47e96c14"
+            "sha256": "2fb63f90967eefd891daf55e1ec31566ba616e95160e69351cf2f6768d92f803"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -203,6 +203,14 @@
             "markers": "python_version >= '3.6' and python_version < '4'",
             "version": "==0.2.1"
         },
+        "eth-tester": {
+            "hashes": [
+                "sha256:b4d3e9b4fb9bf2570da2f22794c0b9205302cf5f74056560c8cf62af25e8dc13",
+                "sha256:dbf14d95a7d5034c66b381fc818c1b40cb0cb4661abe2416a69251618d80311a"
+            ],
+            "index": "pypi",
+            "version": "==0.6.0b4"
+        },
         "eth-typing": {
             "hashes": [
                 "sha256:1140c7592321dbf10d6663c46f7e43eb0e6410b011b03f14b3df3eb1f76aa9bb",
@@ -216,7 +224,7 @@
                 "sha256:74240a8c6f652d085ed3c85f5f1654203d2f10ff9062f83b3bad0a12ff321c7a",
                 "sha256:bf82762a46978714190b0370265a7148c954d3f0adaa31c6f085ea375e4c61af"
             ],
-            "markers": "python_version >= '3.5' and python_version < '4' and python_full_version != '3.5.2'",
+            "markers": "python_version >= '3.5' and python_full_version != '3.5.2' and python_version < '4'",
             "version": "==1.10.0"
         },
         "frozenlist": {
@@ -548,6 +556,14 @@
             ],
             "version": "==2.0.1"
         },
+        "semantic-version": {
+            "hashes": [
+                "sha256:45e4b32ee9d6d70ba5f440ec8cc5221074c7f4b0e8918bdab748cc37912440a9",
+                "sha256:d2cb2de0558762934679b9a104e82eca7af448c9f4974d1f3eeccff651df8a54"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==2.8.5"
+        },
         "setuptools": {
             "hashes": [
                 "sha256:5c89b1a14a67ac5f0956f1cb0aeb7d1d3f4c8ba4e4e1ab7bf1af4933f9a2f0fe",
@@ -561,7 +577,7 @@
                 "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
                 "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==1.16.0"
         },
         "toolz": {
