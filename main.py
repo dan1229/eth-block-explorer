@@ -9,6 +9,16 @@ from helpers import *
 
 load_dotenv()
 
+def perform_transaction(web3, private_key, address_to, address_from, value):
+    signed_txn = w3.eth.account.signTransaction(dict(
+        nonce=w3.eth.getTransactionCount(address_from),
+        gasPrice = w3.eth.gasPrice,
+        gas = 100000,
+        to=address_to,
+        value=web3.toWei(str(value),'ether')
+    ), private_key)
+
+    return web3.eth.sendRawTransaction(signed_txn.rawTransaction)
 
 def handle_choice(web3, choice):
     try:
@@ -23,11 +33,17 @@ def handle_choice(web3, choice):
             account = input("Account >> ")
             balance = web3.eth.get_balance(account)
             print("\n**\nBalance\n" + str(balance) + " ETH\n**\n")
+        elif choice == MENU_CHOICE_CREATE_TRANSACTION:
+            private_key = input("Private Key >> ")
+            address_from = input("Your Address: >> ")
+            address_to = input("Address To: >> ")
+            value = input("How much (ETH): >> ")
+            perform_transaction(web3, private_key, address_from, address_to, value)
         else:  # default
             print("THIS SHOULD NOT HAPPEN - YOUR CHOICE CONFIG IS INVALID")
             raise Exception
-    except Exception:
-        print("INVALID CHOICE?")
+    except Exception as e:
+        print("INVALID CHOICE?\n" + str(e))
 
 '''
 # ================================================================================== #
